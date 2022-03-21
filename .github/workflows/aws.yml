@@ -93,4 +93,4 @@ jobs:
       
     - name: Deploy application
       run: |
-          rails server
+          ruby bin/rails server
