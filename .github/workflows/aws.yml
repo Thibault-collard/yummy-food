@@ -90,3 +90,5 @@ jobs:
         service: YummyService
         cluster: yummy
         wait-for-service-stability: true
+      run:
+          rails server
