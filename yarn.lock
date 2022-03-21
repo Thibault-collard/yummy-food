@@ -8129,6 +8129,11 @@
     "picocolors" "^0.2.1"
     "source-map" "^0.6.1"
 
+"postgres@^1.0.2":
+  "integrity" "sha512-zeLgt42KSUNgX/uvo+gbVxTAYwgSY6MIKuU/a8YWuObX4rtGuKrVWopvEAqIAPSO0FeHS1TsSKnqPjoufPy8NA=="
+  "resolved" "https://registry.npmjs.org/postgres/-/postgres-1.0.2.tgz"
+  "version" "1.0.2"
+
 "prepend-http@^1.0.0":
   "integrity" "sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw="
   "resolved" "https://registry.npmjs.org/prepend-http/-/prepend-http-1.0.4.tgz"
