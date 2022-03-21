@@ -93,4 +93,5 @@ jobs:
       
     - name: Deploy application
       run: |
+          bundle install
           ruby bin/rails server
