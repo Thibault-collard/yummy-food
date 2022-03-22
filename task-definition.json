@@ -29,7 +29,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "065410100987.dkr.ecr.eu-west-3.amazonaws.com/yummy:b043e4ff531504d75c901e3ba8b0dff013ee4600",
+      "image": "yummy",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -46,7 +46,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "Yummy"
+      "name": "yummyContainer"
     }
   ],
   "placementConstraints": [],
@@ -56,16 +56,9 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:065410100987:task-definition/DeploymentContainer:2",
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:065410100987:task-definition/DeploymentContainer:9",
   "family": "DeploymentContainer",
-  "requiresAttributes": [
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
-    }
-  ],
+  "requiresAttributes": [],
   "pidMode": null,
   "requiresCompatibilities": [
     "EC2"
@@ -73,7 +66,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 2,
+  "revision": 9,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,

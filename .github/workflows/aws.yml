@@ -29,16 +29,16 @@ name: Deploy to Amazon ECS
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   AWS_REGION: eu-west-3                # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: yummy           # set this to your Amazon ECR repository name
-  ECS_SERVICE: YummyServices                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: yummy                 # set this to your Amazon ECS cluster name
+  ECR_REPOSITORY: yummyContainer           # set this to your Amazon ECR repository name
+  ECS_SERVICE: YummyService                 # set this to your Amazon ECS service name
+  ECS_CLUSTER: YummyCluster                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: task-definition.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: Yummy          # set this to the name of the container in the
+  CONTAINER_NAME: yummyContainer          # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
 jobs:
@@ -80,7 +80,7 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: ${{ env.ECS_TASK_DEFINITION }}
-        container-name: Yummy
+        container-name: yummyContainer
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
@@ -88,6 +88,6 @@ jobs:
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: YummyService
-        cluster: yummy
+        cluster: YummyCluster
         wait-for-service-stability: true
 
