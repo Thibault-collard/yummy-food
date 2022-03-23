@@ -17,7 +17,7 @@ RUN gem install bundler
 RUN bundle install
 
 COPY . /myapp
-RUN rm -rf node_modules tmp/cache app/assets vendor/assets
+RUN rm -rf node_modules tmp/cache vendor/assets
 
 EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3000"]
