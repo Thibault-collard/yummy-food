@@ -29,7 +29,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "065410100987.dkr.ecr.eu-west-3.amazonaws.com/yummy",
+      "image": "065410100987.dkr.ecr.eu-west-3.amazonaws.com/yummy:aa0bde050ca2097646b69801bad1e26fd82ec713",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -53,10 +53,9 @@
   "memory": "128",
   "taskRoleArn": null,
   "compatibilities": [
-    "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:065410100987:task-definition/DeploymentContainer:11",
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:065410100987:task-definition/DeploymentContainer:20",
   "family": "DeploymentContainer",
   "requiresAttributes": [
     {
@@ -64,16 +63,28 @@
       "targetType": null,
       "value": null,
       "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.task-eni"
     }
   ],
   "pidMode": null,
   "requiresCompatibilities": [
     "EC2"
   ],
-  "networkMode": null,
+  "networkMode": "awsvpc",
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 11,
+  "revision": 20,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
