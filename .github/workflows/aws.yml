@@ -1,9 +1,9 @@
-# This workflow will build and push a new container image to Amazon ECR,
+# This workflow will build and push a new container image to Amazon ECR
 # and then will deploy a new task definition to Amazon ECS, when there is a push to the main branch.
 #
 # To use this workflow, you will need to complete the following set-up steps:
 #
-# 1. Create an ECR repository to store your images.
+# 1. Create an ECR repository to store your images
 #    For example: `aws ecr create-repository --repository-name my-ecr-repo --region us-east-2`.
 #    Replace the value of the `ECR_REPOSITORY` environment variable in the workflow below with your repository's name.
 #    Replace the value of the `AWS_REGION` environment variable in the workflow below with your repository's region.
@@ -33,12 +33,12 @@ on:
 
 env:
   AWS_REGION: eu-west-3                # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: yummyContainer           # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: yummy           # set this to your Amazon ECR repository name
   ECS_SERVICE: YummyService                 # set this to your Amazon ECS service name
   ECS_CLUSTER: YummyCluster                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: task-definition.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: yummyContainer          # set this to the name of the container in the
+  CONTAINER_NAME: yummy          # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
 jobs:
@@ -74,13 +74,12 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: ${{ env.ECS_TASK_DEFINITION }}
-        container-name: yummyContainer
+        container-name: yummy
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
@@ -90,4 +89,3 @@ jobs:
         service: YummyService
         cluster: YummyCluster
         wait-for-service-stability: true
-
